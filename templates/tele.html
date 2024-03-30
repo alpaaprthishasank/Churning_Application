@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction Form</title>
+    <!-- Linking Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 30px;
+        }
+        .result h2 {
+            color: #28a745;
+        }
+        .result p {
+            margin-bottom: 0;
+        }
+        button {
+            margin-right: 10px;
+            margin-bottom: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Churn Prediction Form</h2>
+    <button onclick="window.location.href='/index2'">Raw dataset</button>
+    <button onclick="window.location.href='/index1'">Bank churn Dataset</button>
+    <button onclick="window.location.href='/tele'">Tele Communication dataset</button> 
+    <button onclick="window.location.href='/'">Home</button> 
+
+    <form action="/submit_prediction" method="POST">
+        <label for="count">Count:</label>
+        <input type="number" id="count" name="count" required>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="zip_code">Zip Code:</label>
+        <input type="text" id="zip_code" name="zip_code" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="senior_citizen">Senior Citizen:</label>
+        <select id="senior_citizen" name="senior_citizen" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="partner">Partner:</label>
+        <select id="partner" name="partner" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="dependents">Dependents:</label>
+        <select id="dependents" name="dependents" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="tenure">Tenure (months):</label>
+        <input type="number" id="tenure" name="tenure" required>
+
+        <label for="phone_service">Phone service:</label>
+        <select id="phone_service" name="phone_service" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="multiple_lines">Multiple Lines:</label>
+        <select id="multiple_lines" name="multiple_lines" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="online_security">Online Security:</label>
+        <select id="online_security" name="online_security" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="online_backup">Online Backup:</label>
+        <select id="online_backup" name="online_backup" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="device_protection">Device Protection:</label>
+        <select id="device_protection" name="device_protection" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="tech_support">Tech Support:</label>
+        <select id="tech_support" name="tech_support" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="streaming_tv">Streaming TV:</label>
+        <select id="streaming_tv" name="streaming_tv" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="streaming_movies">Streaming Movies:</label>
+        <select id="streaming_movies" name="streaming_movies" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="paperless_billing">Paperless Billing:</label>
+        <select id="paperless_billing" name="paperless_billing" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="monthly_charges">Monthly Charges ($):</label>
+        <input type="number" id="monthly_charges" name="monthly_charges" required>
+
+        <label for="total_charges">Total Charges ($):</label>
+        <input type="number" id="total_charges" name="total_charges" required>
+
+        <button type="submit" value="Submit">Submit</button>
+    </form>
+    <div class="result">
+
+    {% if predict== 0 %}
+  <h2>RLM</h2>
+      <p>Customer has churned from the bank.</p>
+    {% elif predict == 1 %}
+      <h2>RLM</h2>
+      <p>Customer haven't churned from the bank.</p>
+    {% endif %}  
+    {% if predict1== 0 %}
+  <h2>LLM</h2>
+      <p>Customer has churned from the bank.</p>
+    {% elif predict1 == 1 %}
+      <h2>LLM</h2>
+      <p>Customer haven't churned from the bank.</p>
+    {% endif %}  
+
+     {% if predict2== 0 %}
+  <h2>SLM</h2>
+      <p>Customer has churned from the bank.</p>
+    {% elif predict2 == 1 %}
+      <h2>SLM</h2>
+      <p>Customer haven't churned from the bank.</p>
+    {% endif %}
+     {% if predict3== 0 %}
+  <h2>Ensemble</h2>
+      <p>Customer has churned from the bank.</p>
+    {% elif predict3 == 1 %}
+      <h2>Ensemble</h2>
+      <p>Customer haven't churned from the bank.</p>
+    {% endif %}
+    </div>
+</div>
+</body>
+</html>

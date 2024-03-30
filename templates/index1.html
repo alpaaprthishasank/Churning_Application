@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Information Form</title>
+    <!-- Linking Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 50%;
+            margin: 50px auto;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+         h2 {
+            color: #007bff;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result-container {
+            margin-top: 20px;
+        }
+        .result-container h2 {
+            color: #007bff;
+        }
+        .result-container p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button onclick="window.location.href='/index2'" class="btn btn-primary">Raw dataset</button>
+    <button onclick="window.location.href='/index1'" class="btn btn-primary">Bank churn Dataset</button>
+    <button onclick="window.location.href='/tele'" class="btn btn-primary">Tele Communication dataset</button> 
+    <button onclick="window.location.href='/'" class="btn btn-primary">Home</button> 
+
+    <div class="form-container">
+        <form id="customer-form" action="/predict1" method="POST">
+            <h1>Bank Churn Dataset</h1>
+            <h1>Enter Customer Information</h1>
+
+            <div class="form-group">
+                <label for="Customer_Age">Customer Age</label>
+                <input type="number" id="Customer_Age" name="Customer_Age">
+            </div>
+            <div class="form-group">
+                <label for="Dependent_count">Dependent Count</label>
+                <input type="number" id="Dependent_count" name="Dependent_count">
+            </div>
+            <div class="form-group">
+                <label for="Months_on_book">Months on Book</label>
+                <input type="number" id="Months_on_book" name="Months_on_book">
+            </div>
+            <div class="form-group">
+                <label for="Total_Relationship_Count">Total Relationship Count</label>
+                <input type="number" id="Total_Relationship_Count" name="Total_Relationship_Count">
+            </div>
+            <div class="form-group">
+                <label for="Months_Inactive_12_mon">Months Inactive (12 months)</label>
+                <input type="number" id="Months_Inactive_12_mon" name="Months_Inactive_12_mon">
+            </div>
+            <div class="form-group">
+                <label for="Contacts_Count_12_mon">Contacts Count (12 months)</label>
+                <input type="number" id="Contacts_Count_12_mon" name="Contacts_Count_12_mon">
+            </div>
+            <div class="form-group">
+                <label for="Credit_Limit">Credit Limit</label>
+                <input type="number" id="Credit_Limit" name="Credit_Limit">
+            </div>
+            <div class="form-group">
+                <label for="Total_Revolving_Bal">Total Revolving Balance</label>
+                <input type="number" id="Total_Revolving_Bal" name="Total_Revolving_Bal">
+            </div>
+            <div class="form-group">
+                <label for="Avg_Open_To_Buy">Average Open To Buy</label>
+                <input type="number" id="Avg_Open_To_Buy" name="Avg_Open_To_Buy">
+            </div>
+            <div class="form-group">
+                <label for="Total_Amt_Chng_Q4_Q1">Total Amount Change (Q4-Q1)</label>
+                <input type="number" id="Total_Amt_Chng_Q4_Q1" name="Total_Amt_Chng_Q4_Q1">
+            </div>
+            <div class="form-group">
+                <label for="Total_Trans_Amt">Total Transaction Amount</label>
+                <input type="number" id="Total_Trans_Amt" name="Total_Trans_Amt">
+            </div>
+            <div class="form-group">
+                <label for="Total_Trans_Ct">Total Transaction Count</label>
+                <input type="number" id="Total_Trans_Ct" name="Total_Trans_Ct">
+            </div>
+            <div class="form-group">
+                <label for="Total_Ct_Chng_Q4_Q1">Total Count Change (Q4-Q1)</label>
+                <input type="number" id="Total_Ct_Chng_Q4_Q1" name="Total_Ct_Chng_Q4_Q1">
+            </div>
+            <div class="form-group">
+                <label for="Avg_Utilization_Ratio">Average Utilization Ratio</label>
+                <input type="number" id="Avg_Utilization_Ratio" name="Avg_Utilization_Ratio">
+            </div>
+            <div class="form-group">
+                <label for="Gender">Gender</label>
+                <select id="Gender" name="Gender">
+                    <option value="F">Female</option>
+                    <option value="M">Male</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Education_Level">Education Level</label>
+                <select id="Education_Level" name="Education_Level">
+                    <option value="College">College</option>
+                    <option value="Doctorate">Doctorate</option>
+                    <option value="Graduate">Graduate</option>
+                    <option value="High School">High School</option>
+                    <option value="Post-Graduate">Post-Graduate</option>
+                    <option value="Uneducated">Uneducated</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Marital_Status">Marital Status</label>
+                <select id="Marital_Status" name="Marital_Status">
+                    <option value="Divorced">Divorced</option>
+                    <option value="Married">Married</option>
+                    <option value="Single">Single</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Income_Category">Income Category</label>
+                <select id="Income_Category" name="Income_Category">
+                    <option value="$120K +">$120K +</option>
+                    <option value="$40K - $60K">$40K - $60K</option>
+                    <option value="$60K - $80K">$60K - $80K</option>
+                    <option value="$80K - $120K">$80K - $120K</option>
+                    <option value="Less than $40K">Less than $40K</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Card_Category">Card Category</label>
+                <select id="Card_Category" name="Card_Category">
+                    <option value="Blue">Blue</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Platinum">Platinum</option>
+                    <option value="Silver">Silver</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" value="Submit">Submit</button>
+            </div>
+            <div class="result-container">
+    {% if predict == 0 %}
+    <h2>RLM</h2>
+    <p>Customer has churned from the bank.</p>
+    {% elif predict == 1 %}
+    <h2>RLM</h2>
+    <p>Customer haven't churned from the bank.</p>
+    {% endif %}
+
+    {% if predict1 == 0 %}
+    <h2>LLM</h2>
+    <p>Customer has churned from the bank.</p>
+    {% elif predict1 == 1 %}
+    <h2>LLM</h2>
+    <p>Customer haven't churned from the bank.</p>
+    {% endif %}
+
+    {% if predict2 == 0 %}
+    <h2>SLM</h2>
+    <p>Customer has churned from the bank.</p>
+    {% elif predict2 == 1 %}
+    <h2>SLM</h2>
+    <p>Customer haven't churned from the bank.</p>
+    {% endif %}
+
+    {% if predict3 == 0 %}
+    <h2>Ensemble</h2>
+    <p>Customer has churned from the bank.</p>
+    {% elif predict3 == 1 %}
+    <h2>Ensemble</h2>
+    <p>Customer haven't churned from the bank.</p>
+    {% endif %}
+</div>
+
+        </form>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

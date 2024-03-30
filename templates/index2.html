@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Information Form</title>
+    <!-- Linking Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 30px;
+        }
+        .result h2 {
+            color: #28a745;
+        }
+        .result p {
+            margin-bottom: 0;
+        }
+        .btn {
+            margin-right: 10px;
+            margin-bottom: 10px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <button class="btn btn-primary" onclick="window.location.href='/index2'">Raw dataset</button>
+    <button class="btn btn-primary" onclick="window.location.href='/index1'">Bank churn Dataset</button>
+    <button class="btn btn-primary" onclick="window.location.href='/tele'">Tele Communication dataset</button> 
+    <button class="btn btn-primary" onclick="window.location.href='/'">Home</button> 
+    <h2>Raw Dataset</h2>
+    <h2>Enter Customer Information</h2>
+    <form action="/predict" method="POST">
+        <label for="creditScore">Credit Score:</label>
+        <input type="text" id="creditScore" name="CreditScore">
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="Age">
+
+        <label for="tenure">Tenure:</label>
+        <input type="text" id="tenure" name="Tenure">
+
+        <label for="balance">Balance:</label>
+        <input type="text" id="balance" name="Balance">
+
+        <label for="numOfProducts">Number of Products:</label>
+        <input type="text" id="numOfProducts" name="NumOfProducts">
+
+        <label for="hasCrCard">Has Credit Card:</label>
+        <select id="hasCrCard" name="HasCrCard">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="isActiveMember">Is Active Member:</label>
+        <select id="isActiveMember" name="IsActiveMember">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="estimatedSalary">Estimated Salary:</label>
+        <input type="text" id="estimatedSalary" name="EstimatedSalary">
+
+        <label for="zeroBalance">Zero Balance:</label>
+        <select id="zeroBalance" name="ZeroBalance">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="Gender">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+
+        <label for="country">Country:</label>
+        <select id="country" name="Country">
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="Spain">Spain</option>
+        </select>
+
+        <!-- Add submit button -->
+        <input type="submit" value="Submit">
+    </form>
+    <div class="result">
+        {% if predict == 0 %}
+            <h2>LLM</h2>
+            <p>Customer has churned from the bank.</p>
+        {% elif predict == 1 %}
+            <h2>LLM</h2>
+            <p>Customer haven't churned from the bank.</p>
+        {% endif %}
+        {% if predict1 == 0 %}
+            <h2>SLM</h2>
+            <p>Customer has churned from the bank.</p>
+        {% elif predict1 == 1 %}
+            <h2>SLM</h2>
+            <p>Customer haven't churned from the bank.</p>
+        {% endif %}
+        {% if predict2 == 0 %}
+            <h2>RLM</h2>
+            <p>Customer has churned from the bank.</p>
+        {% elif predict2 == 1 %}
+            <h2>RLM</h2>
+            <p>Customer haven't churned from the bank.</p>
+        {% endif %}
+        {% if predict3 == 0 %}
+            <h2>Ensemble</h2>
+            <p>Customer has churned from the bank.</p>
+        {% elif predict3 == 1 %}
+            <h2>Ensemble</h2>
+            <p>Customer haven't churned from the bank.</p>
+        {% endif %}
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

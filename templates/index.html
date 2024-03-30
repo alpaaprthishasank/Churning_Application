@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    /* Add your custom styles here */
+  </style>
+</head>
+<body>
+  <h1>Hello </h1>
+  <form action="/predict" method="POST">
+
+    <label for="creditScore">Credit Score:</label>
+    <input type="text" id="creditScore" name="CreditScore"><br>
+
+    <label for="age">Age:</label>
+    <input type="text" id="age" name="Age"><br>
+
+    <label for="tenure">Tenure:</label>
+    <input type="text" id="tenure" name="Tenure"><br>
+
+    <label for="balance">Balance:</label>
+    <input type="text" id="balance" name="Balance"><br>
+
+    <label for="numOfProducts">Number of Products:</label>
+    <input type="text" id="numOfProducts" name="NumOfProducts"><br>
+
+    <label for="hasCrCard">Has Credit Card:</label>
+    <input type="text" id="hasCrCard" name="HasCrCard"><br>
+
+    <label for="isActiveMember">Is Active Member:</label>
+    <input type="text" id="isActiveMember" name="IsActiveMember"><br>
+
+    <label for="estimatedSalary">Estimated Salary:</label>
+    <input type="text" id="estimatedSalary" name="EstimatedSalary"><br>
+
+    <label for="zeroBalance">Zero Balance:</label>
+    <input type="text" id="zeroBalance" name="ZeroBalance"><br>
+
+    <label for="female">Female:</label>
+    <input type="text" id="female" name="Female"><br>
+
+    <label for="male">Male:</label>
+    <input type="text" id="male" name="Male"><br>
+
+    <label for="france">France:</label>
+    <input type="text" id="france" name="France"><br>
+
+    <label for="germany">Germany:</label>
+    <input type="text" id="germany" name="Germany"><br>
+
+    <label for="spain">Spain:</label>
+    <input type="text" id="spain" name="Spain"><br>
+
+    <button type="submit">PREDICT</button>
+  </form>
+  <div>
+  {% if predict == 0 %}
+  <h2>SVM</h2>
+      <p>Customer has churned from the bank.</p>
+    {% elif predict == 1 %}
+      <h2>SLM</h2>
+      <p>Customer haven't churned from the bank.</p>
+    {% endif %}
+   {% if predict1 == 0 %}
+  <h2>LLM</h2>
+      <p>Customer has churned from the bank.</p>
+    {% elif predict1 == 1 %}
+      <h2>LLM</h2>
+      <p>Customer haven't churned from the bank.</p>
+    {% endif %}
+{% if predict2 == 0 %}
+  <h2>SLM</h2>
+      <p>Customer has churned from the bank.</p>
+    {% elif predict2 == 1 %}
+      <h2>SLM</h2>
+      <p>Customer haven't churned from the bank.</p>
+    {% endif %}
+  {% if predict3 == 0 %}
+  <h2>RLM</h2>
+      <p>Customer has churned from the bank.</p>
+    {% elif predict3 == 1 %}
+      <h2>RLM</h2>
+      <p>Customer haven't churned from the bank.</p>
+    {% endif %}  
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
